@@ -24,6 +24,8 @@ class AdvertisementStorage
         videos.add(new Advertisement(someContent, "Second Video", 100, 10, 15 * 60)); //15 min
         videos.add(new Advertisement(someContent, "Third Video", 400, 2, 10 * 60));   //10 min
         videos.add(new Advertisement(someContent, "Samoe dorogoe Video", 3000, 1, 3 * 60));//12
+        videos.add(new Advertisement(someContent, "Ершкв Мшвущ", 400, 2, 10 * 60));   //10 min
+        videos.add(new Advertisement(someContent, "Ыфьщу вщкщпщу Мшвущ", 3000, 1, 3 * 60));//12
     }
 
     public List<Advertisement> list()
