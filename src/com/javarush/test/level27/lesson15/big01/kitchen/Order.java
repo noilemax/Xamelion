@@ -14,6 +14,11 @@ public class Order
     private List<Dish> dishes;
     private Tablet tablet;
 
+    public List<Dish> getDishes()
+    {
+        return dishes;
+    }
+
     public Order(Tablet tablet) throws IOException
     {
         this.dishes = ConsoleHelper.getAllDishesForOrder();
