@@ -14,14 +14,12 @@ import java.util.logging.Logger;
  */
 public class Tablet extends Observable
 {
-    private final int number;
-    final static Logger logger = Logger.getLogger(Tablet.class.getName());
-
+    public final int number;
+    public static java.util.logging.Logger logger = Logger.getLogger(Tablet.class.getName());
     public Tablet(int number)
     {
         this.number = number;
     }
-
     public void createOrder()
     {
         Order order = null;
@@ -36,17 +34,14 @@ public class Tablet extends Observable
                 notifyObservers(order);
                 advertisementManager.processVideos();
             }
-        }
-        catch (IOException e)
+        } catch (IOException e)
         {
             logger.log(Level.SEVERE, "Console is unavailable.");
-        }
-        catch (NoVideoAvailableException e)
+        } catch (NoVideoAvailableException e)
         {
             logger.log(Level.INFO, "No video is available for the order " + order);
         }
     }
-
     @Override
     public String toString()
     {
