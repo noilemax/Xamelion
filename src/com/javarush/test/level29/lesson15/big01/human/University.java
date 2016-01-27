@@ -1,105 +1,22 @@
 package com.javarush.test.level29.lesson15.big01.human;
 
-import java.util.ArrayList;
-import java.util.List;
+public class University extends Student {
 
-public class University
-{
-
-    private List<Student> students = new ArrayList<>();
-    private String name;
-    private int age;
-
-
-    public int getAge()
-    {
-        return age;
+    public University(String name, int age) {
+        super(name, age, 0);
     }
 
-    public void setAge(int age)
-    {
-        this.age = age;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-
-    public University(String name, int age)
-    {
-        this.name = name;
-        this.age = age;
-    }
-
-    public List<Student> getStudents()
-    {
-        return students;
-    }
-
-    public void setStudents(List<Student> students)
-    {
-        this.students = students;
-    }
-
-    public Student getStudentWithAverageGrade(double averageGrade)
-    {
+    public Student getStudentWithAverageGrade() {
         //TODO:
-        Student studentResult = null;
-        for (Student student : students)
-        {
-            if (student.getAverageGrade() == averageGrade)
-            {
-                studentResult = student;
-                break;
-            }
-        }
-        return studentResult;
+        return null;
     }
 
-    public Student getStudentWithMaxAverageGrade()
-    {
+    public Student getStudentWithMaxAverageGrade(double averageGrade) {
         //TODO:
-        Student studentResult = null;
-        double max = 0;
-        for (Student student : students)
-        {
-            if (student.getAverageGrade() > max)
-            {
-                max = student.getAverageGrade();
-                studentResult = student;
-            }
-        }
-        return studentResult;
+        return null;
     }
 
-    public Student getStudentWithMinAverageGrade()
-    {
+    public void getStudentWithMinAverageGradeAndExpel() {
         //TODO:
-        Student studentResult = null;
-        double min = students.get(0).getAverageGrade();
-        for (Student student : students)
-        {
-            if (student.getAverageGrade() < min)
-            {
-                min = student.getAverageGrade();
-                studentResult = student;
-            }
-        }
-        return studentResult;
-    }
-
-    public void expel(Student student)
-    {
-        if (students.contains(student))
-        {
-            students.remove(student);
-        }
     }
 }

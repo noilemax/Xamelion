@@ -8,14 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Администратор on 23.01.2016.
- */
 public class Restaurant
 {
     private static final int ORDER_CREATING_INTERVAL = 100;
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         Locale.setDefault(Locale.ENGLISH);
         Cook cook = new Cook("Amigo");
@@ -36,15 +33,10 @@ public class Restaurant
 
         Thread t = new Thread(new RandomOrderGeneratorTask(tablets, ORDER_CREATING_INTERVAL));
         t.start();
-        try
-        {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException ignored)
-        {
-        }
-        t.interrupt();
 
+        Thread.sleep(1000);
+
+        t.interrupt();
 
 
         DirectorTablet directorTablet = new DirectorTablet();

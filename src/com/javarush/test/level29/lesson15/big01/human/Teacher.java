@@ -1,16 +1,20 @@
 package com.javarush.test.level29.lesson15.big01.human;
 
-public class Teacher extends UniversityPerson
+public class Teacher extends Human
 {
     private int numberOfStudents;
+    private String university;
 
     public Teacher(String name, int age, int numberOfStudents)
     {
-        super(name, age);
+        super(false);
+        this.name = name;
+        this.age = age;
         this.numberOfStudents = numberOfStudents;
     }
 
 
+    @Override
     public void live()
     {
         teach();
@@ -20,9 +24,18 @@ public class Teacher extends UniversityPerson
     {
     }
 
-    public String getPosition()
+    public String getUniversity()
     {
-        return "Преподаватель";
+        return university;
     }
 
+    public void setUniversity(String university)
+    {
+        this.university = university;
+    }
+
+    public void printData()
+    {
+        System.out.println("Преподаватель: " + name);
+    }
 }
