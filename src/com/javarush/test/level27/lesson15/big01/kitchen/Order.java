@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Order
 {
-    private List<Dish> dishes;
+    protected List<Dish> dishes;
     private Tablet tablet;
 
     public List<Dish> getDishes()
@@ -21,10 +21,9 @@ public class Order
 
     public Order(Tablet tablet) throws IOException
     {
-        this.dishes = ConsoleHelper.getAllDishesForOrder();
         this.tablet = tablet;
+        initDishes();
     }
-
 
     @Override
     public String toString()
@@ -35,6 +34,7 @@ public class Order
         }
         return "Your order: " + dishes + " of " + tablet;
     }
+
     public int getTotalCookingTime()
     {
         int totalDuration = 0;
@@ -44,8 +44,14 @@ public class Order
         }
         return totalDuration;
     }
+
     public boolean isEmpty()
     {
         return dishes == null || dishes.isEmpty();
+    }
+
+    protected void initDishes() throws IOException
+    {
+        dishes = ConsoleHelper.getAllDishesForOrder();
     }
 }
