@@ -19,6 +19,16 @@ public class Human implements Alive
     private int bloodGroup;
     private List<Human> children = new ArrayList<>();
 
+    public String getPosition()
+    {
+        return "Человек";
+    }
+
+    public void printData()
+    {
+        System.out.println(getPosition() + ": " + name);
+    }
+
     public void setBloodGroup(int code)
     {
         bloodGroup = code;
@@ -58,6 +68,7 @@ public class Human implements Alive
     }
 
 
+    @Override
     public void live()
     {
     }

@@ -4,6 +4,13 @@ public class Teacher extends UniversityPerson
 {
     private int numberOfStudents;
 
+    @Override
+    public String getPosition()
+    {
+        return "Преподаватель";
+    }
+
+
     public Teacher(String name, int age, int numberOfStudents)
     {
         super(name, age);
@@ -24,8 +31,4 @@ public class Teacher extends UniversityPerson
     }
 
 
-    public void printData()
-    {
-        System.out.println("Преподаватель: " + name);
-    }
 }
