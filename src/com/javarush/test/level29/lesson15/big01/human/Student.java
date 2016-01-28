@@ -24,7 +24,6 @@ public class Student extends UniversityPerson
         this.averageGrade = averageGrade;
     }
 
-
     @Override
     public void live()
     {
@@ -35,17 +34,10 @@ public class Student extends UniversityPerson
     {
     }
 
-
-    public void incAverageGradeBy01()
+    public void incAverageGrade(double delta)
     {
-        averageGrade += 0.1;
+        averageGrade += delta;
     }
-
-    public void incAverageGradeBy02()
-    {
-        averageGrade += 0.2;
-    }
-
 
     public void setCourse(int course)
     {
@@ -57,14 +49,14 @@ public class Student extends UniversityPerson
         this.averageGrade = averageGrade;
     }
 
-    public void setBeginningOfSession(int day, int month, int year)
+    public void setBeginningOfSession(Date date)
     {
-        beginningOfSession = new Date(year, month, day);
+        beginningOfSession = date;
     }
 
-    public void setEndOfSession(int day, int month, int year)
+    public void setEndOfSession(Date date)
     {
-        endOfSession = new Date(year, month, day);
+        endOfSession = date;
     }
 
     public double getAverageGrade()
