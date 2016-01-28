@@ -14,21 +14,64 @@ public class University
         this.age = age;
     }
 
-    public Student getStudentWithAverageGrade()
+    public Student getStudentWithAverageGrade(double averageGrade)
     {
         //TODO:
+        if (!students.isEmpty())
+        {
+            for (Student student : students)
+            {
+                if (student.getAverageGrade() == averageGrade)
+                {
+                    return student;
+                }
+            }
+        }
         return null;
     }
 
-    public Student getStudentWithMaxAverageGrade(double averageGrade)
+    public Student getStudentWithMaxAverageGrade()
     {
         //TODO:
+        if (!students.isEmpty())
+        {
+            Student student = students.get(0);
+            for (Student current : students)
+            {
+                if (current.getAverageGrade() > student.getAverageGrade())
+                {
+                    student = current;
+                }
+            }
+            return student;
+        }
         return null;
     }
 
-    public void getStudentWithMinAverageGradeAndExpel()
+    public Student getStudentWithMinAverageGrade()
     {
         //TODO:
+        if (!students.isEmpty())
+        {
+            Student student = students.get(0);
+            for (Student current : students)
+            {
+                if (current.getAverageGrade() < student.getAverageGrade())
+                {
+                    student = current;
+                }
+            }
+            return student;
+        }
+        return null;
+    }
+
+    public void expel(Student student)
+    {
+        if (students.contains(student))
+        {
+            students.remove(student);
+        }
     }
 
     public List<Student> getStudents()
@@ -61,3 +104,8 @@ public class University
         this.age = age;
     }
 }
+//Разделение запроса и модификатора. Раздели метод
+//        getStudentWithMinAverageGradeAndExpel на Student getStudentWithMinAverageGrade() и
+//        void expel(Student student). Первый метод должен возвратить студента с
+//        минимальным средним балом, а второй - отчислить переданного студента (удалять из
+//        списка students).
