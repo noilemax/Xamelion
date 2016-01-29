@@ -1,5 +1,6 @@
 package com.javarush.test.level34.lesson15.big01.view;
 
+import com.javarush.test.level34.lesson15.big01.controller.EventListener;
 import com.javarush.test.level34.lesson15.big01.model.Box;
 import com.javarush.test.level34.lesson15.big01.model.Player;
 
@@ -9,6 +10,7 @@ import java.awt.*;
 public class Field extends JPanel
 {
     private View view;
+    private EventListener eventListener;
 
     public Field(View view)
     {
@@ -21,8 +23,10 @@ public class Field extends JPanel
         Box box = new Box(3, 3);
         Player player = new Player(5, 5);
     }
+
+    public void setEventListener(EventListener eventListener)
+    {
+        this.eventListener = eventListener;
+
+    }
 }
-//Для того чтобы проверить как рисуется твой ящик или игрок, ты можешь создать
-//объект типа Box или Player в методе paint() класса Field и вызвать у объекта метод
-//    draw(). Сделай это исключительно для проверки методов draw(), в дальнейшем метод
-//        paint() мы реализуем иначе.
