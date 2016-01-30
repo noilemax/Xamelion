@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -86,38 +87,31 @@ public class ZipFileManager
 
     public List<FileProperties> getFilesList() throws Exception
     {
+        List<FileProperties> list = new ArrayList<>();
+
         if (!Files.isRegularFile(zipFile))
         {
             throw new WrongZipFileException();
         }
         FileProperties fp = null;
-        List<FileProperties> list = null;
         ZipEntry entry;
         try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile)))
         {
-            byte[] buffer = new byte[2048];
 
             while ((entry = zipInputStream.getNextEntry()) != null)
             {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                int l = 0;
 
                 String name;
                 long size;
                 long compressedSize;
                 int compressionMethod;
-//                long compressionRatio;
-                while ((l = zipInputStream.read(buffer)) > 0)
-                {
-                    baos.write(buffer);
                     copyData(zipInputStream, baos);
                     name = entry.getName();
                     size = entry.getSize();
                     compressedSize = entry.getCompressedSize();
                     compressionMethod = entry.getMethod();
-//                    compressionRatio = entry.getMethod();
                     list.add(new FileProperties(name, size, compressedSize, compressionMethod));
-                }
             }
         }
         catch (Exception e)
@@ -127,8 +121,3 @@ public class ZipFileManager
         return list;
     }
 }
-//class ZipEntry implements ZipConstants, Cloneable {
-//    String name;        // entry name
-//    long size = -1;     // uncompressed size of entry data
-//    long csize = -1;    // compressed size of entry data
-//    int method = -1;    // compression method
